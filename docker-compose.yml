@@ -1,0 +1,35 @@
+version: '3'
+services:
+  db:
+    image: mysql:5.6.34
+    ports:
+      - "3306:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=asset_handle_development
+    volumes:
+      - ./tmp/db:/var/lib/mysql
+  backend:
+    image: asset-holding-backend
+    build:
+      context: ./backend
+    command: rails server -p 3000 -b '0.0.0.0'
+    environment:
+        RAILS_ENV: development
+    volumes:
+      - .:/myapp
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+  frontend:
+      image: asset-holding-frontend
+      build:
+        context: ./frontend
+      volumes:
+        - '.:/usr/src/app'
+        - '/usr/src/app/node_modules'
+      ports:
+        - '3001:3001'
+      environment:
+        - NODE_ENV=development
