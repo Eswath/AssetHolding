@@ -27,7 +27,7 @@ function SimpleMediaCard(props) {
                 <CardMedia
                     className={classes.media}
                     image={codingLogo}
-                    title="Contemplative Reptile"
+
                 />
 
                 <CardContent>

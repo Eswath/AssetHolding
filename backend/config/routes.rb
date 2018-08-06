@@ -9,6 +9,7 @@ Rails.application.routes.draw do
       get 'dashboard' => 'hr#dashboard'
       post 'create_company_asset' => 'hr#create_company_asset'
       patch 'update_company_asset' => 'hr#update_company_asset'
+      delete 'delete_company_asset' => 'hr#delete_company_asset'
     end
 
     scope :employee do

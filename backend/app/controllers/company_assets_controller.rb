@@ -1,5 +1,5 @@
 class CompanyAssetsController < ApplicationController
-  before_action :set_company_asset, only: [:show, :edit, :update, :destroy]
+  before_action :set_company_asset, only: [:show, :edit, :update, :destroy,:create]
 
   # GET /company_assets
   # GET /company_assets.json

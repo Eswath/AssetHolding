@@ -8,8 +8,8 @@ class HrController < ApplicationController
 
   def create_company_asset
     begin
-      CompanyAsset.create!(company_asset_params[:company_asset_params])
-      render json: {"asset" => "Company Assets Successfully created", "status" => 200}
+      company_assets = CompanyAsset.create!(company_asset_params[:company_asset_params])
+      render json: {"asset" => "Company Assets Successfully created", "status" => 200, "company_assets"=>company_assets}
     rescue
       render json: {"message" => "Unable to create company assets", "status" => 500}
     end
@@ -24,6 +24,19 @@ class HrController < ApplicationController
       render json: {"message" => "Company Assets Successfully updated", "status" => 200}
     rescue
       render json: {"message" => "Unable to update company assets", "status" => 500}
+    end
+  end
+
+  def delete_company_asset
+    begin
+      company_asset_params['company_asset_params'].each do |asset|
+        company_asset = CompanyAsset.find_by(:name=>asset["name"])
+        company_asset.destroy
+        puts("#{asset} deleted")
+      end
+      render json: {"message" => "Company Assets Successfully deleted", "status" => 200}
+    rescue
+      render json: {"message" => "Unable to delete company assets", "status" => 500}
     end
   end
 

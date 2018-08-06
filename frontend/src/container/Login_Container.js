@@ -1,15 +1,17 @@
 import Login from '../component/Login'
-import { login } from "../action/Action";
+import { apiCall,pushToHr } from "../action/Action";
 import { connect } from 'react-redux'
 
 const mapStatetoProps = (state) => {
     return{
-        login: state.toggle_reducer.login
+        login: state.toggle_reducer.login,
+        errorMessage: state.toggle_reducer.errorMessage
     }
 }
 const mapDispathtoProps = (dispatch) => {
     return{
-        getLogin: () => dispatch(login())
+        apiCall: (user) => dispatch(apiCall(user)),
+        pushToHr: ()=> dispatch(pushToHr())
     }
 }
 

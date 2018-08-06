@@ -13,6 +13,12 @@ module AssetHandle
     config.exceptions_app = self.routes
     config.api_only = true
     config.debug_exception_response_format = :api
+    config.middleware.insert_before 0, Rack::Cors do
+      allow do
+        origins 'http://localhost:3000'
+        resource '*', headers: :any, methods: [:get, :post, :patch, :delete]
+      end
+    end
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded after loading

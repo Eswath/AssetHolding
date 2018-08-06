@@ -8,3 +8,15 @@
     padding: 10px 10px 10px 10px;
 
 }
+#container{
+    max-width:1000px;
+    margin:  auto;
+    /*display: block;*/
+
+}
+#header{
+    display: block;
+    position: fixed;
+    top:0;
+    left:0;
+}
