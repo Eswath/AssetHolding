@@ -3,15 +3,15 @@ class EmployeeController < ApplicationController
 
   def dashboard
     assets = GenericService.new({:user => current_user}).user_assets
-    render json: {"assets" => assets}
+    render json: {:assets => assets}
   end
 
   def request_asset
     begin
       current_user.user_assets.create!(asset_params[:asset_params])
-      render json: {"message" => "Assets Requested Successfully", "status" => 200}
+      render json: {:message => "Assets Requested Successfully", :status => 200}
     rescue
-      render json: {"message" => "Sorry Something happened", "status" => 500}
+      render json: {:message => "Sorry Something happened", :status => 500}
     end
   end
 

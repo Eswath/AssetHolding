@@ -20,7 +20,6 @@ class HrController < ApplicationController
       company_asset_params['company_asset_params'].each do |asset|
         company_asset = CompanyAsset.find_by(:name=>asset["name"])
         company_asset.update_attributes(:count => asset["count"])
-        puts("#{asset} updated")
       end
       render json: {"message" => "Company Assets Successfully updated", "status" => 200}
     rescue
