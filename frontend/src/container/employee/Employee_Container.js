@@ -1,5 +1,5 @@
-import Employee from '../component/Employee'
-import { employee,toggleModal } from "../action/Action";
+import Employee from '../../component/Employee'
+import { employee,toggleModal } from "../../action/common/Action";
 import { connect } from 'react-redux'
 
 const mapStatetoProps = (state) => {

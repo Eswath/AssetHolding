@@ -1,5 +1,5 @@
-import Login from '../component/Login'
-import { apiCall,pushToHr } from "../action/Action";
+import Login from '../../component/Login'
+import { apiCall,pushToHr } from "../../action/common/Action";
 import { connect } from 'react-redux'
 
 const mapStatetoProps = (state) => {

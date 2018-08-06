@@ -7,7 +7,7 @@ import {
     GET_ASSET_DATA_URL,
     GET_COUNTRY_URL,
     UPDATE_ASSET_DATA_URL
-} from "../const";
+} from "../../const";
 
 export function hr() {
     return{
